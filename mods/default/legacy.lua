@@ -11,18 +11,7 @@ function default.register_falling_node(nodename, texture)
 	end
 end
 
-function default.spawn_falling_node(p, nodename)
-	spawn_falling_node(p, nodename)
-end
-
--- Liquids
-WATER_ALPHA = minetest.registered_nodes["default:water_source"].alpha
-WATER_VISC = minetest.registered_nodes["default:water_source"].liquid_viscosity
-LAVA_VISC = minetest.registered_nodes["default:lava_source"].liquid_viscosity
-LIGHT_MAX = default.LIGHT_MAX
-
 -- Formspecs
-default.gui_suvival_form = default.gui_survival_form
 default.gui_bg     = ""
 default.gui_bg_img = ""
 default.gui_slots  = ""

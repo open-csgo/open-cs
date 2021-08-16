@@ -2,6 +2,14 @@ unused_args = false
 allow_defined_top = true
 max_line_length = 125
 
+globals = {
+	minetest = {
+		fields = {
+			"calculate_knockback",
+		},
+	},
+}
+
 read_globals = {
     "DIR_DELIM", "INIT",
 
