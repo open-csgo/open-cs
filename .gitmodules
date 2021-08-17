@@ -1,0 +1,3 @@
+[submodule "mods/techpack_stairway"]
+	path = mods/techpack_stairway
+	url = git@github.com:joe7575/techpack_stairway.git
