@@ -1,3 +1,21 @@
 [submodule "mods/techpack_stairway"]
 	path = mods/techpack_stairway
 	url = https://github.com/joe7575/techpack_stairway.git
+[submodule "mods/redef"]
+	path = mods/redef
+	url = https://gitlab.com/4w/redef.git
+[submodule "mods/angledwalls"]
+	path = mods/angledwalls
+	url = https://github.com/TumeniNodes/angledwalls.git
+[submodule "mods/morelights"]
+	path = mods/morelights
+	url = https://github.com/random-geek/morelights.git
+[submodule "mods/bridger"]
+	path = mods/bridger
+	url = https://github.com/v-rob/bridger.git
+[submodule "mods/ts_workshop"]
+	path = mods/ts_workshop
+	url = https://github.com/minetest-mods/ts_workshop.git
+[submodule "mods/streets"]
+	path = mods/streets
+	url = git@github.com:minetest-streets/streets.git
