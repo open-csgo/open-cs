@@ -169,6 +169,7 @@ function flowers.flower_spread(pos, node)
 	end
 end
 
+--[[
 minetest.register_abm({
 	label = "Flower spread",
 	nodenames = {"group:flora"},
@@ -178,6 +179,7 @@ minetest.register_abm({
 		flowers.flower_spread(...)
 	end,
 })
+]]
 
 
 --
