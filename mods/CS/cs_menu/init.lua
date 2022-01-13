@@ -1,3 +1,5 @@
+minetest.log("action", "[cs_menu] loading...")
+
 local table = table
 
 cs_menu = {}
@@ -32,3 +34,5 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
 		return hp_change
 	end
 end, true)
+
+minetest.log("action", "[cs_menu] loaded succesfully")

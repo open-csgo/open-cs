@@ -1,3 +1,5 @@
+minetest.log("action", "[cs_player] loading...")
+
 local minetest = minetest
 
 local vector = vector
@@ -78,3 +80,4 @@ function minetest.send_leave_message(player_name)
 end
 
 
+minetest.log("action", "[cs_player] loaded succesfully")

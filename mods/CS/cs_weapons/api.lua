@@ -19,11 +19,19 @@ function cs_weapon.register_weapon(name, def)
 	end
 	minetest.register_craftitem(name, {
 		description = def.desc or "UKNOWN",
-        inventory_image = def.icon or "default_stone.png",
+		inventory_image = def.icon or "default_stone.png",
 		on_use = use,
 		on_secondary_use = use,
 		_weapon = {
-			
+		},
+	})
+	minetest.register_entity(name, {
+		initial_properties = {
+			physical = false,
+			pointable = false,
+			visual = "mesh",
+			mesh = def.model,
+			visual_size = vector.new(1, 1, 1),
 		},
 	})
 end
@@ -88,15 +96,9 @@ function cs_weapon.shot(player, def)
 	return nil
 end
 
-cs_weapon.register_weapon("cs_weapon:test", {
-	desc = "Test",
-	specs = {
-		damage = 4,
-	},
-})
-
-cs_weapon.register_weapon("cs_weapon:ak47", {
-	desc = "AK47",
+cs_weapon.register_weapon("cs_weapon:sniper", {
+	desc = "Smiper",
+	model = "cs_weapons_sniper.b3d",
 	specs = {
 		price = 2700,
 		kill_award = 300,
