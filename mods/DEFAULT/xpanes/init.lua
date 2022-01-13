@@ -156,11 +156,6 @@ function xpanes.register_pane(name, def)
 		},
 		connects_to = {"group:pane", "group:stone", "group:glass", "group:wood", "group:tree"},
 	})
-
-	minetest.register_craft({
-		output = "xpanes:" .. name .. "_flat 16",
-		recipe = def.recipe
-	})
 end
 
 xpanes.register_pane("pane", {
@@ -170,10 +165,6 @@ xpanes.register_pane("pane", {
 	wield_image = "default_glass.png",
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
-	recipe = {
-		{"default:glass", "default:glass", "default:glass"},
-		{"default:glass", "default:glass", "default:glass"}
-	}
 })
 
 xpanes.register_pane("obsidian_pane", {
@@ -183,10 +174,6 @@ xpanes.register_pane("obsidian_pane", {
 	wield_image = "default_obsidian_glass.png",
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy=2, cracky=3},
-	recipe = {
-		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"},
-		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"}
-	}
 })
 
 xpanes.register_pane("bar", {
@@ -196,10 +183,6 @@ xpanes.register_pane("bar", {
 	wield_image = "xpanes_bar.png",
 	groups = {cracky=2},
 	sounds = default.node_sound_metal_defaults(),
-	recipe = {
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"}
-	}
 })
 
 minetest.register_lbm({
@@ -245,13 +228,5 @@ if minetest.get_modpath("doors") then
 		sounds = default.node_sound_metal_defaults(),
 		sound_open = "xpanes_steel_bar_door_open",
 		sound_close = "xpanes_steel_bar_door_close",
-	})
-
-	minetest.register_craft({
-		output = "xpanes:trapdoor_steel_bar",
-		recipe = {
-			{"xpanes:bar_flat", "xpanes:bar_flat"},
-			{"xpanes:bar_flat", "xpanes:bar_flat"},
-		}
 	})
 end

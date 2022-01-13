@@ -10,17 +10,25 @@ cs_menu.formspec_prepend = table.concat({
 
 minetest.register_on_joinplayer(function(player)
 	--disable inventory formspec
-	player:set_inventory_formspec("no_prepend[]")
+	--player:set_inventory_formspec("no_prepend[]")
 	--apply formspec styling
 	player:set_formspec_prepend(cs_menu.formspec_prepend)
 	--hide unused HUD elements
 	player:hud_set_flags({
-		hotbar = false,
-        healthbar = true, --tmp
-        crosshair = true, --tmp
-        wielditem = true,
-        breathbar = false,
-        minimap = false,
-        minimap_radar = false,
+		hotbar = true,
+		healthbar = false, --tmp
+		crosshair = true, --tmp
+		wielditem = true,
+		breathbar = false,
+		minimap = false,
+		minimap_radar = false,
 	})
 end)
+
+minetest.register_on_player_hpchange(function(player, hp_change, reason)
+	if reason == "drown" then
+		return 0
+	else
+		return hp_change
+	end
+end, true)
