@@ -30,6 +30,7 @@ function cs_weapon.register_weapon(name, def)
 			physical = false,
 			pointable = false,
 			visual = "mesh",
+			textures = {def.texture},
 			mesh = def.model,
 			visual_size = vector.new(1, 1, 1),
 		},
@@ -99,6 +100,7 @@ end
 cs_weapon.register_weapon("cs_weapon:sniper", {
 	desc = "Smiper",
 	model = "cs_weapons_sniper.b3d",
+	texture = "cs_weapons_sniper.png",
 	specs = {
 		price = 2700,
 		kill_award = 300,

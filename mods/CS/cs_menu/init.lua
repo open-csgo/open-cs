@@ -5,7 +5,6 @@ local table = table
 cs_menu = {}
 
 cs_menu.formspec_prepend = table.concat({
-	"bgcolor[#100E1DBB;true]",
 	"listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]",
 	"background9[5,5;1,1;gui_formbg.png;true;10]",
 })
