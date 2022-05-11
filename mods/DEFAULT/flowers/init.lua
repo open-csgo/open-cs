@@ -169,19 +169,6 @@ function flowers.flower_spread(pos, node)
 	end
 end
 
---[[
-minetest.register_abm({
-	label = "Flower spread",
-	nodenames = {"group:flora"},
-	interval = 13,
-	chance = 300,
-	action = function(...)
-		flowers.flower_spread(...)
-	end,
-})
-]]
-
-
 --
 -- Mushrooms
 --
@@ -247,27 +234,6 @@ function flowers.mushroom_spread(pos, node)
 		minetest.set_node(pos2, {name = node.name})
 	end
 end
-
-minetest.register_abm({
-	label = "Mushroom spread",
-	nodenames = {"flowers:mushroom_brown", "flowers:mushroom_red"},
-	interval = 11,
-	chance = 150,
-	action = function(...)
-		flowers.mushroom_spread(...)
-	end,
-})
-
-
--- These old mushroom related nodes can be simplified now
-
-minetest.register_alias("flowers:mushroom_spores_brown", "flowers:mushroom_brown")
-minetest.register_alias("flowers:mushroom_spores_red", "flowers:mushroom_red")
-minetest.register_alias("flowers:mushroom_fertile_brown", "flowers:mushroom_brown")
-minetest.register_alias("flowers:mushroom_fertile_red", "flowers:mushroom_red")
-minetest.register_alias("mushroom:brown_natural", "flowers:mushroom_brown")
-minetest.register_alias("mushroom:red_natural", "flowers:mushroom_red")
-
 
 --
 -- Waterlily
