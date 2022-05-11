@@ -55,9 +55,7 @@ minetest.register_node("default:torch", {
 
 		return itemstack
 	end,
-	floodable = true,
-	on_flood = on_flood,
-	on_rotate = false
+	on_rotate = false,
 })
 
 minetest.register_node("default:torch_wall", {

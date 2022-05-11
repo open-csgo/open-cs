@@ -54,8 +54,11 @@ function cs_weapon.shot(player, def)
 				if pointed_thing.type == "node" then
 					local node = minetest.get_node(pointed_thing.under).name
 					if minetest.get_node_group(node, "door_shoot") ~= 0 then
+						--TODO: implement door breaking
+						minetest.chat_send_all("door found!")
 					elseif minetest.get_node_group(node, "leaves") ~= 0 then
 						--TODO: add this to CSM/SSCSM
+						minetest.chat_send_all("leaves found!")
 						local velocity = vector.new(3, 3, 3)
 						minetest.add_particlespawner({
 							amount = 10,

@@ -11,11 +11,11 @@ cs_player = {
 	apparence = {},
 }
 
-local players_channels = {
+--[[local players_channels = {
 	center_message = {},
 }
 
-local player_states = {}
+local player_states = {}]]
 
 function cs_player.get_player_state()
 end
