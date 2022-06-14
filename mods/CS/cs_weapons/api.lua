@@ -8,12 +8,18 @@ local function metters_to_inches(m)
 	return m*10000/254
 end
 
+---@param base_damage number
+---@param range_modifier number
+---@param inches_distance number
+---@return number
 local function distance_to_damage(base_damage, range_modifier, inches_distance)
 	return base_damage * (range_modifier ^ (inches_distance/500))
 end
 
 cs_weapon.registered_weapons = {}
 
+---@param name string
+---@param def table
 function cs_weapon.register_weapon(name, def)
 	def.specs.damage = def.specs.damage or 10
 	--[[local function use(_, user, _)
@@ -40,7 +46,7 @@ function cs_weapon.register_weapon(name, def)
 	})
 end
 
-controls.register_on_hold(function (player, cname, time)
+controls.register_on_hold(function(player, cname, time)
 	if cname ~= "dig" then return end
 	local item = player:get_wielded_item()
 
