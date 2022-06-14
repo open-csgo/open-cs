@@ -17,7 +17,7 @@ minetest.register_on_joinplayer(function(player)
 	--hide unused HUD elements
 	player:hud_set_flags({
 		hotbar = true,
-		healthbar = false, --tmp
+		healthbar = false,
 		crosshair = true, --tmp
 		wielditem = true,
 		breathbar = false,
