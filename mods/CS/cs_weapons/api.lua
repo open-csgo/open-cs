@@ -2,6 +2,8 @@ local minetest = minetest
 
 local vector = vector
 
+---@param m number
+---@return number
 local function metters_to_inches(m)
 	return m*10000/254
 end
@@ -20,8 +22,9 @@ function cs_weapon.register_weapon(name, def)
 	minetest.register_craftitem(name, {
 		description = def.desc or "UKNOWN",
 		inventory_image = def.icon or "default_stone.png",
-		on_use = use,
-		on_secondary_use = use,
+		--on_use = use,
+		--on_secondary_use = use,
+		groups = {weapon = 1},
 		_weapon = {
 		},
 	})
@@ -37,10 +40,28 @@ function cs_weapon.register_weapon(name, def)
 	})
 end
 
+controls.register_on_hold(function (player, cname, time)
+	if cname ~= "dig" then return end
+	local item = player:get_wielded_item()
+
+	if item:get_definition().groups.weapon ~= 0 then
+		cs_weapon.shot(player, {damage = 36, range_modifier = 0.4})
+	end
+end)
+
+---@param player ObjectRef
+---@param def any
 function cs_weapon.shot(player, def)
 	def.height = def.height or player:get_properties().eye_height
 	local pos = player:get_pos()
 	pos.y = pos.y + def.height
+
+	minetest.debug(player:get_look_horizontal(), player:get_look_vertical())
+
+	local ctrl = player:get_player_control()
+
+	player:set_look_vertical(player:get_look_vertical() - math.random()/(ctrl.sneak and 64 or 32))
+	player:set_look_horizontal(player:get_look_horizontal() + math.random(-100, 100)/(ctrl.sneak and 4000 or 2000))
 
 	local look_dir = player:get_look_dir()
 	look_dir = vector.multiply(look_dir, 20)
@@ -53,10 +74,10 @@ function cs_weapon.shot(player, def)
 				--minetest.chat_send_all(pointed_thing.type)
 				if pointed_thing.type == "node" then
 					local node = minetest.get_node(pointed_thing.under).name
-					if minetest.get_node_group(node, "door_shoot") ~= 0 then
+					if minetest.get_item_group(node, "door_shoot") ~= 0 then
 						--TODO: implement door breaking
 						minetest.chat_send_all("door found!")
-					elseif minetest.get_node_group(node, "leaves") ~= 0 then
+					elseif minetest.get_item_group(node, "leaves") ~= 0 then
 						--TODO: add this to CSM/SSCSM
 						minetest.chat_send_all("leaves found!")
 						local velocity = vector.new(3, 3, 3)
@@ -81,6 +102,12 @@ function cs_weapon.shot(player, def)
 						})
 					else
 						minetest.chat_send_all("node found!")
+						minetest.add_particle({
+							pos = pointed_thing.intersection_point,
+							expirationtime = 5,
+							size = 2,
+							texture = "cs_weapons_bullet_hole.png",
+						})
 						break
 					end
 				elseif pointed_thing.type == "object" and
@@ -100,9 +127,9 @@ function cs_weapon.shot(player, def)
 	return nil
 end
 
-cs_weapon.register_weapon("cs_weapon:sniper", {
+cs_weapon.register_weapon("cs_weapons:sniper", {
 	desc = "Smiper",
-	model = "cs_weapons_sniper.b3d",
+	model = "cs_weapons_sniper.obj",
 	texture = "cs_weapons_sniper.png",
 	specs = {
 		price = 2700,

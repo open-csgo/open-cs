@@ -16,6 +16,8 @@ function controls.register_on_release(func)
 end
 
 controls.registered_on_hold = {}
+
+---@param func fun(player: ObjectRef, cname: string, time: any)
 function controls.register_on_hold(func)
 	controls.registered_on_hold[#controls.registered_on_hold+1]=func
 end
