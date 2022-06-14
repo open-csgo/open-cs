@@ -1,8 +1,15 @@
+---
 version: 2
 updates:
-- package-ecosystem: gitsubmodule
-  directory: "/"
-  schedule:
-    interval: daily
-  assignees:
-  - AFCMS
+  - package-ecosystem: gitsubmodule
+    directory: "/"
+    schedule:
+      interval: daily
+    assignees:
+      - AFCMS
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    assignees:
+      - AFCMS

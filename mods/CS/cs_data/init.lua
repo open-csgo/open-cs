@@ -22,7 +22,6 @@ minetest.register_globalstep(function(dtime)
 			minetest.after(5, function ()
 				players_channels[o]:send_all(minetest.serialize(data))
 			end)
-			
 		else
 			table.insert(r, o)
 		end

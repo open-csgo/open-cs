@@ -16,9 +16,9 @@ cs_weapon.registered_weapons = {}
 
 function cs_weapon.register_weapon(name, def)
 	def.specs.damage = def.specs.damage or 10
-	local function use(_, user, _)
+	--[[local function use(_, user, _)
 		cs_weapon.shot(user, {damage = def.specs.damage, range_modifier = def.specs.range_modifier or 0.40})
-	end
+	end]]
 	minetest.register_craftitem(name, {
 		description = def.desc or "UKNOWN",
 		inventory_image = def.icon or "default_stone.png",
