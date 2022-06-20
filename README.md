@@ -1,4 +1,10 @@
-# open-cs
+# Open CS
+
+This game is made for the Minetest voxel engine.
+
+Its purpose is to provide a good, low-requirement FPS, while proving the power of CSM based graphics, HUD and menus.
+
+Its in very beta stage.
 
 ## Credits
 
