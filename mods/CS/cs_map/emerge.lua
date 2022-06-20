@@ -20,6 +20,10 @@ local function emergeblocks_callback(pos, action, num_calls_remaining, ctx)
 	end
 end
 
+---@param pos1 Vector
+---@param pos2 Vector
+---@param callback fun(context: table)
+---@param progress? fun()
 function cs_map.emerge_with_callbacks(pos1, pos2, callback, progress)
 	local context = {
 		current_blocks = 0,

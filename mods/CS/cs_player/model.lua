@@ -23,6 +23,8 @@ local player_anim = {}
 local player_sneak = {}
 cs_player.apparence.player_attached = {}
 
+---@param player ObjectRef
+---@return table
 function cs_player.apparence.get_animation(player)
 	local name = player:get_player_name()
 	return {

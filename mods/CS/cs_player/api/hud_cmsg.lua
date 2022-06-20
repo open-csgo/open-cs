@@ -8,6 +8,9 @@ minetest.register_on_leaveplayer(function(player)
 	players_channels[player] = nil
 end)
 
+---@param player ObjectRef
+---@param text string
+---@return boolean
 function cs_player.hud.add_center_msg(player, text)
 	if players_channels[player] and players_channels[player]:is_writeable() then
 		players_channels[player]:send_all(text)

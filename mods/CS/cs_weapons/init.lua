@@ -28,11 +28,29 @@ minetest.register_entity("cs_weapons:flash", {
 	}
 })
 
-minetest.register_chatcommand("f", {
+minetest.register_chatcommand("fs", {
 	func = function(name)
 		local pos = minetest.get_player_by_name(name):get_pos()
 
 		minetest.add_entity(pos, "cs_weapons:flash")
+	end
+})
+
+minetest.register_chatcommand("ft", {
+	func = function(name)
+		local player = minetest.get_player_by_name(name)
+		if player then
+			local entities = minetest.get_objects_inside_radius(player:get_pos(), 20)
+			for _,e in ipairs(entities) do
+				if e:get_luaentity() and e:get_luaentity().name == "cs_weapons:flash" then
+					cs_player.hud.flash(player, e:get_pos())
+					break
+				end
+			end
+			return true, "Done"
+		else
+			return false, "Not online"
+		end
 	end
 })
 

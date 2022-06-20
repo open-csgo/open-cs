@@ -21,8 +21,8 @@ minetest.register_on_joinplayer(function(player)
 		crosshair = true, --tmp
 		wielditem = true,
 		breathbar = false,
-		minimap = false,
-		minimap_radar = false,
+		--minimap = false,
+		--minimap_radar = false,
 	})
 end)
 

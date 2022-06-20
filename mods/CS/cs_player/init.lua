@@ -20,7 +20,8 @@ local player_states = {}]]
 function cs_player.get_player_state()
 end
 
-dofile(modpath.."/api/hud.lua")
+dofile(modpath.."/api/hud_cmsg.lua")
+dofile(modpath.."/api/hud_flash.lua")
 dofile(modpath.."/model.lua")
 
 --[[
@@ -63,6 +64,7 @@ minetest.register_on_joinplayer(function(player)
 	player:set_hp(100)
 	player:set_physics_override({jump = 1.3, speed = 1.2})
 	player:hud_set_hotbar_itemcount(4)
+	--player:set_minimap_modes({type = "texture", texture = "player.png", scale = 1}, 0)
 	cs_player.apparence.player_attached[player:get_player_name()] = false
 	cs_player.apparence.set_model(player, "character.b3d")
 	--player_states[player] = "loading"
