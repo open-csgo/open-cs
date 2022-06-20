@@ -1,0 +1,4 @@
+* text=auto
+scr	export-ignore
+*.xcf	export-ignore
+*.blend	export-ignore
