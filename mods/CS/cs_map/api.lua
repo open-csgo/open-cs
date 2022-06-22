@@ -1,9 +1,7 @@
 
-cs_map.INITIAL_MAP_POS = vector.new(30000, 0, 30000)
+cs_map.INITIAL_MAP_POS = vector.new(-30000, 0, -30000)
 
-local map_pos = cs_map.INITIAL_MAP_POS
-
-
+---@type integer
 cs_map.MAX_CONCURENT_MAPS = tonumber(minetest.settings:get("cs_map.max_concurent_maps")) or 4
 
 
@@ -92,6 +90,8 @@ end
 function cs_map.emerge_map(index)
 	local p = cs_map.active_maps[index]
 	local mapdef = cs_map.registered_maps[p.id]
+
+	--TODO: forceload block
 
 	if not p then return false end
 	if not mapdef then return false end
