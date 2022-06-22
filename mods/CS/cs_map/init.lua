@@ -6,7 +6,7 @@ cs_map = {}
 
 dofile(modpath.."/origin.lua")
 dofile(modpath.."/emerge.lua")
-dofile(modpath.."/map.lua")
+dofile(modpath.."/api.lua")
 dofile(modpath.."/register.lua")
 
 minetest.log("action", "[cs_map] loaded succesfully")

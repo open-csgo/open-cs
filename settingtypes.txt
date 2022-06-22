@@ -1,0 +1,3 @@
+[Maps]
+
+cs_map.max_concurent_maps (Max Concurent Maps) int 4 1 20

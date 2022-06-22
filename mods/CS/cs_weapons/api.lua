@@ -43,6 +43,11 @@ function cs_weapon.register_weapon(name, def)
 			mesh = def.model,
 			visual_size = vector.new(1, 1, 1),
 		},
+		on_step = function(self)
+			if not self.object:get_attach() then
+				self.object:remove()
+			end
+		end,
 	})
 end
 

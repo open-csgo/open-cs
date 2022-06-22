@@ -34,4 +34,7 @@ cs_map.register_map("hill", {
 			},
 		},
 	},
+	allowed_modes = {
+		competitive = true
+	}
 })

@@ -2,6 +2,8 @@ unused_args = false
 allow_defined_top = true
 max_line_length = 125
 
+exclude_files = {"mods/CS/cs_map/api_types.lua"}
+
 globals = {
 	minetest = {
 		fields = {
