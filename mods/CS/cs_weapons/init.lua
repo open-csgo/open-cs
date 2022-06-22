@@ -2,7 +2,9 @@ minetest.log("action", "[cs_weapons] loading...")
 
 local modpath  = minetest.get_modpath(minetest.get_current_modname())
 
-cs_weapon = {}
+cs_weapons = {}
+
+cs_weapons.GUN_KNOCKBACK = minetest.settings:get_bool("cs_weapons.gun_knockback", true)
 
 dofile(modpath.."/api.lua")
 

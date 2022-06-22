@@ -16,11 +16,11 @@ local function distance_to_damage(base_damage, range_modifier, inches_distance)
 	return base_damage * (range_modifier ^ (inches_distance/500))
 end
 
-cs_weapon.registered_weapons = {}
+cs_weapons.registered_weapons = {}
 
 ---@param name string
 ---@param def table
-function cs_weapon.register_weapon(name, def)
+function cs_weapons.register_weapon(name, def)
 	def.specs.damage = def.specs.damage or 10
 	--[[local function use(_, user, _)
 		cs_weapon.shot(user, {damage = def.specs.damage, range_modifier = def.specs.range_modifier or 0.40})
@@ -56,13 +56,13 @@ controls.register_on_hold(function(player, cname, time)
 	local item = player:get_wielded_item()
 
 	if item:get_definition().groups.weapon ~= 0 then
-		cs_weapon.shot(player, {damage = 36, range_modifier = 0.4})
+		cs_weapons.shot(player, {damage = 36, range_modifier = 0.4})
 	end
 end)
 
 ---@param player ObjectRef
 ---@param def any
-function cs_weapon.shot(player, def)
+function cs_weapons.shot(player, def)
 	def.height = def.height or player:get_properties().eye_height
 	local pos = player:get_pos()
 	pos.y = pos.y + def.height
@@ -71,8 +71,10 @@ function cs_weapon.shot(player, def)
 
 	local ctrl = player:get_player_control()
 
-	player:set_look_vertical(player:get_look_vertical() - math.random()/(ctrl.sneak and 64 or 32))
-	player:set_look_horizontal(player:get_look_horizontal() + math.random(-100, 100)/(ctrl.sneak and 4000 or 2000))
+	if cs_weapons.GUN_KNOCKBACK then
+		player:set_look_vertical(player:get_look_vertical() - math.random()/(ctrl.sneak and 64 or 32))
+		player:set_look_horizontal(player:get_look_horizontal() + math.random(-100, 100)/(ctrl.sneak and 4000 or 2000))
+	end
 
 	local look_dir = player:get_look_dir()
 	look_dir = vector.multiply(look_dir, 20)
@@ -138,7 +140,7 @@ function cs_weapon.shot(player, def)
 	return nil
 end
 
-cs_weapon.register_weapon("cs_weapons:sniper", {
+cs_weapons.register_weapon("cs_weapons:sniper", {
 	desc = "Smiper",
 	model = "cs_weapons_sniper.obj",
 	texture = "cs_weapons_sniper.png",
