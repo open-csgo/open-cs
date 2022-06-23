@@ -91,7 +91,7 @@ function cs_map.emerge_map(index)
 	local p = cs_map.active_maps[index]
 	local mapdef = cs_map.registered_maps[p.id]
 
-	--TODO: forceload block
+	--TODO: forceload block to prevent unloading (=map destroyed with dummy mapgen)
 
 	if not p then return false end
 	if not mapdef then return false end
