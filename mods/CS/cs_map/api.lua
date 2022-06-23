@@ -50,13 +50,13 @@ end
 ---@param index integer
 ---@return Vector
 function cs_map.map_index_to_pos(index)
-	return vector.offset(cs_map.INITIAL_MAP_POS, 2000 * index, 0, 0)
+	return vector.offset(cs_map.INITIAL_MAP_POS, 2000 * (index - 1), 0, 0)
 end
 
 
 ---@return integer?
 function cs_map.get_free_index()
-	for i = 0, cs_map.MAX_CONCURENT_MAPS do
+	for i = 1, cs_map.MAX_CONCURENT_MAPS do
 		if not cs_map.active_maps[i] then
 			return i
 		end
@@ -112,5 +112,11 @@ minetest.register_chatcommand("map", {
 	func = function()
 		print(dump(cs_map.registered_maps))
 		cs_map.create_map("hill")
+	end,
+})
+
+minetest.register_chatcommand("map_list", {
+	func = function()
+		return true, dump(cs_map.active_maps)
 	end,
 })
