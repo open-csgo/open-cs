@@ -1,42 +1,52 @@
 local minetest = minetest
 
 local os = os
+local pairs = pairs
+
+---@alias controls_key '"jump"'|'"right"'|'"left"'|'"sneak"'|'"aux1"'|'"down"'|'"up"'|'"zoom"'|'"dig"'|'"place"'
 
 controls = {}
 controls.players = {}
 
+---@type fun(player: ObjectRef, cname: controls_key, time: number)[]
 controls.registered_on_press = {}
+
+---@param func fun(player: ObjectRef, cname: controls_key, time: number)
 function controls.register_on_press(func)
-	controls.registered_on_press[#controls.registered_on_press+1] = func
+	controls.registered_on_press[#controls.registered_on_press + 1] = func
 end
 
+---@type fun(player: ObjectRef, cname: controls_key, time: number)[]
 controls.registered_on_release = {}
+
+---@param func fun(player: ObjectRef, cname: controls_key, time: number)
 function controls.register_on_release(func)
-	controls.registered_on_release[#controls.registered_on_release+1] = func
+	controls.registered_on_release[#controls.registered_on_release + 1] = func
 end
 
+---@type fun(player: ObjectRef, cname: controls_key, time: number)[]
 controls.registered_on_hold = {}
 
----@param func fun(player: ObjectRef, cname: string, time: any)
+---@param func fun(player: ObjectRef, cname: controls_key, time: number)
 function controls.register_on_hold(func)
-	controls.registered_on_hold[#controls.registered_on_hold+1]=func
+	controls.registered_on_hold[#controls.registered_on_hold + 1] = func
 end
 
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	controls.players[name] = {
-		jump = {false},
-		right = {false},
-		left = {false},
-		LMB = {false},
-		RMB = {false},
-		sneak = {false},
-		aux1 = {false},
-		down = {false},
-		up = {false},
-		zoom = {false},
-		dig = {false},
-		place = {false}
+		jump = { false },
+		right = { false },
+		left = { false },
+		LMB = { false },
+		RMB = { false },
+		sneak = { false },
+		aux1 = { false },
+		down = { false },
+		up = { false },
+		zoom = { false },
+		dig = { false },
+		place = { false }
 	}
 end)
 
@@ -60,17 +70,17 @@ minetest.register_globalstep(function()
 				for _, func in pairs(controls.registered_on_press) do
 					func(player, cname)
 				end
-				controls.players[player_name][cname] = {true, os.clock()}
+				controls.players[player_name][cname] = { true, os.clock() }
 			elseif cbool == true and controls.players[player_name][cname][1] == true then
 				for _, func in pairs(controls.registered_on_hold) do
 					func(player, cname, os.clock() - controls.players[player_name][cname][2])
 				end
-			--Release a key
+				--Release a key
 			elseif cbool == false and controls.players[player_name][cname][1] == true then
 				for _, func in pairs(controls.registered_on_release) do
-					func(player, cname, os.clock()-controls.players[player_name][cname][2])
+					func(player, cname, os.clock() - controls.players[player_name][cname][2])
 				end
-				controls.players[player_name][cname] = {false}
+				controls.players[player_name][cname] = { false }
 			end
 		end
 	end
