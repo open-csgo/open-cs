@@ -1,0 +1,5 @@
+{
+	"runtime.version": "LuaJIT",
+	"workspace.ignoreDir": [".vscode", ".luacheckrc"],
+	"diagnostics": { "disable": ["lowercase-global"] }
+}

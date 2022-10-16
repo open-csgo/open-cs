@@ -1,0 +1,12 @@
+{
+	"material-icon-theme.activeIconPack": "none",
+	"material-icon-theme.files.associations": { ".imgbotconfig": "settings" },
+	"material-icon-theme.folders.associations": {
+		"mods": "components",
+		"textures": "images",
+		"cs_map": "public",
+		"cs_data": "database",
+		"cs_debug": "debug",
+		"controls": "utils"
+	}
+}
