@@ -32,7 +32,7 @@ local function swap(pos, node, name, param2)
 		return
 	end
 
-	minetest.swap_node(pos, {name = name, param2 = param2})
+	minetest.swap_node(pos, { name = name, param2 = param2 })
 end
 
 local function update_pane(pos)
@@ -71,23 +71,6 @@ local function update_pane(pos)
 	end
 end
 
-minetest.register_on_placenode(function(pos, node)
-	if minetest.get_item_group(node, "pane") then
-		update_pane(pos)
-	end
-	for i = 0, 3 do
-		local dir = minetest.facedir_to_dir(i)
-		update_pane(vector.add(pos, dir))
-	end
-end)
-
-minetest.register_on_dignode(function(pos)
-	for i = 0, 3 do
-		local dir = minetest.facedir_to_dir(i)
-		update_pane(vector.add(pos, dir))
-	end
-end)
-
 xpanes = {}
 function xpanes.register_pane(name, def)
 	for i = 1, 15 do
@@ -119,11 +102,11 @@ function xpanes.register_pane(name, def)
 		use_texture_alpha = def.use_texture_alpha and "blend" or "clip",
 		node_box = {
 			type = "fixed",
-			fixed = {{-1/2, -1/2, -1/32, 1/2, 1/2, 1/32}},
+			fixed = { { -1 / 2, -1 / 2, -1 / 32, 1 / 2, 1 / 2, 1 / 32 } },
 		},
 		selection_box = {
 			type = "fixed",
-			fixed = {{-1/2, -1/2, -1/32, 1/2, 1/2, 1/32}},
+			fixed = { { -1 / 2, -1 / 2, -1 / 32, 1 / 2, 1 / 2, 1 / 32 } },
 		},
 		connect_sides = { "left", "right" },
 	})
@@ -148,40 +131,40 @@ function xpanes.register_pane(name, def)
 		use_texture_alpha = def.use_texture_alpha and "blend" or "clip",
 		node_box = {
 			type = "connected",
-			fixed = {{-1/32, -1/2, -1/32, 1/32, 1/2, 1/32}},
-			connect_front = {{-1/32, -1/2, -1/2, 1/32, 1/2, -1/32}},
-			connect_left = {{-1/2, -1/2, -1/32, -1/32, 1/2, 1/32}},
-			connect_back = {{-1/32, -1/2, 1/32, 1/32, 1/2, 1/2}},
-			connect_right = {{1/32, -1/2, -1/32, 1/2, 1/2, 1/32}},
+			fixed = { { -1 / 32, -1 / 2, -1 / 32, 1 / 32, 1 / 2, 1 / 32 } },
+			connect_front = { { -1 / 32, -1 / 2, -1 / 2, 1 / 32, 1 / 2, -1 / 32 } },
+			connect_left = { { -1 / 2, -1 / 2, -1 / 32, -1 / 32, 1 / 2, 1 / 32 } },
+			connect_back = { { -1 / 32, -1 / 2, 1 / 32, 1 / 32, 1 / 2, 1 / 2 } },
+			connect_right = { { 1 / 32, -1 / 2, -1 / 32, 1 / 2, 1 / 2, 1 / 32 } },
 		},
-		connects_to = {"group:pane", "group:stone", "group:glass", "group:wood", "group:tree"},
+		connects_to = { "group:pane", "group:stone", "group:glass", "group:wood", "group:tree" },
 	})
 end
 
 xpanes.register_pane("pane", {
 	description = S("Glass Pane"),
-	textures = {"default_glass.png", "", "xpanes_edge.png"},
+	textures = { "default_glass.png", "", "xpanes_edge.png" },
 	inventory_image = "default_glass.png",
 	wield_image = "default_glass.png",
 	sounds = default.node_sound_glass_defaults(),
-	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
+	groups = { snappy = 2, cracky = 3, oddly_breakable_by_hand = 3 },
 })
 
 xpanes.register_pane("obsidian_pane", {
 	description = S("Obsidian Glass Pane"),
-	textures = {"default_obsidian_glass.png", "", "xpanes_edge_obsidian.png"},
+	textures = { "default_obsidian_glass.png", "", "xpanes_edge_obsidian.png" },
 	inventory_image = "default_obsidian_glass.png",
 	wield_image = "default_obsidian_glass.png",
 	sounds = default.node_sound_glass_defaults(),
-	groups = {snappy=2, cracky=3},
+	groups = { snappy = 2, cracky = 3 },
 })
 
 xpanes.register_pane("bar", {
 	description = S("Steel Bars"),
-	textures = {"xpanes_bar.png", "", "xpanes_bar_top.png"},
+	textures = { "xpanes_bar.png", "", "xpanes_bar_top.png" },
 	inventory_image = "xpanes_bar.png",
 	wield_image = "xpanes_bar.png",
-	groups = {cracky=2},
+	groups = { cracky = 2 },
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -190,18 +173,18 @@ xpanes.register_pane("bar", {
 if minetest.get_modpath("doors") then
 
 	doors.register("xpanes:door_steel_bar", {
-		tiles = {{name = "xpanes_door_steel_bar.png", backface_culling = true}},
+		tiles = { { name = "xpanes_door_steel_bar.png", backface_culling = true } },
 		description = S("Steel Bar Door"),
 		inventory_image = "xpanes_item_steel_bar.png",
 		protected = true,
-		groups = {node = 1, cracky = 1, level = 2},
+		groups = { node = 1, cracky = 1, level = 2 },
 		sounds = default.node_sound_metal_defaults(),
 		sound_open = "xpanes_steel_bar_door_open",
 		sound_close = "xpanes_steel_bar_door_close",
 		recipe = {
-			{"xpanes:bar_flat", "xpanes:bar_flat"},
-			{"xpanes:bar_flat", "xpanes:bar_flat"},
-			{"xpanes:bar_flat", "xpanes:bar_flat"},
+			{ "xpanes:bar_flat", "xpanes:bar_flat" },
+			{ "xpanes:bar_flat", "xpanes:bar_flat" },
+			{ "xpanes:bar_flat", "xpanes:bar_flat" },
 		},
 	})
 
@@ -212,7 +195,7 @@ if minetest.get_modpath("doors") then
 		tile_front = "xpanes_trapdoor_steel_bar.png",
 		tile_side = "xpanes_trapdoor_steel_bar_side.png",
 		protected = true,
-		groups = {node = 1, cracky = 1, level = 2, door = 1},
+		groups = { node = 1, cracky = 1, level = 2, door = 1 },
 		sounds = default.node_sound_metal_defaults(),
 		sound_open = "xpanes_steel_bar_door_open",
 		sound_close = "xpanes_steel_bar_door_close",

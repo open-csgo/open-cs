@@ -5,20 +5,20 @@
 function default.node_sound_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "", gain = 1.0}
+		{ name = "", gain = 1.0 }
 	table.dug = table.dug or
-			{name = "default_dug_node", gain = 0.25}
+		{ name = "default_dug_node", gain = 0.25 }
 	table.place = table.place or
-			{name = "default_place_node_hard", gain = 1.0}
+		{ name = "default_place_node_hard", gain = 1.0 }
 	return table
 end
 
 function default.node_sound_stone_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_hard_footstep", gain = 0.3}
+		{ name = "default_hard_footstep", gain = 0.3 }
 	table.dug = table.dug or
-			{name = "default_hard_footstep", gain = 1.0}
+		{ name = "default_hard_footstep", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -26,11 +26,11 @@ end
 function default.node_sound_dirt_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_dirt_footstep", gain = 0.4}
+		{ name = "default_dirt_footstep", gain = 0.4 }
 	table.dug = table.dug or
-			{name = "default_dirt_footstep", gain = 1.0}
+		{ name = "default_dirt_footstep", gain = 1.0 }
 	table.place = table.place or
-			{name = "default_place_node", gain = 1.0}
+		{ name = "default_place_node", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -38,11 +38,11 @@ end
 function default.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_sand_footstep", gain = 0.05}
+		{ name = "default_sand_footstep", gain = 0.05 }
 	table.dug = table.dug or
-			{name = "default_sand_footstep", gain = 0.15}
+		{ name = "default_sand_footstep", gain = 0.15 }
 	table.place = table.place or
-			{name = "default_place_node", gain = 1.0}
+		{ name = "default_place_node", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -50,13 +50,13 @@ end
 function default.node_sound_gravel_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_gravel_footstep", gain = 0.1}
+		{ name = "default_gravel_footstep", gain = 0.1 }
 	table.dig = table.dig or
-			{name = "default_gravel_dig", gain = 0.35}
+		{ name = "default_gravel_dig", gain = 0.35 }
 	table.dug = table.dug or
-			{name = "default_gravel_dug", gain = 1.0}
+		{ name = "default_gravel_dug", gain = 1.0 }
 	table.place = table.place or
-			{name = "default_place_node", gain = 1.0}
+		{ name = "default_place_node", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -64,9 +64,9 @@ end
 function default.node_sound_wood_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_wood_footstep", gain = 0.3}
+		{ name = "default_wood_footstep", gain = 0.3 }
 	table.dug = table.dug or
-			{name = "default_wood_footstep", gain = 1.0}
+		{ name = "default_wood_footstep", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -74,11 +74,11 @@ end
 function default.node_sound_leaves_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_grass_footstep", gain = 0.45}
+		{ name = "default_grass_footstep", gain = 0.45 }
 	table.dug = table.dug or
-			{name = "default_grass_footstep", gain = 0.7}
+		{ name = "default_grass_footstep", gain = 0.7 }
 	table.place = table.place or
-			{name = "default_place_node", gain = 1.0}
+		{ name = "default_place_node", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -86,11 +86,11 @@ end
 function default.node_sound_glass_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_glass_footstep", gain = 0.3}
+		{ name = "default_glass_footstep", gain = 0.3 }
 	table.dig = table.dig or
-			{name = "default_glass_footstep", gain = 0.5}
+		{ name = "default_glass_footstep", gain = 0.5 }
 	table.dug = table.dug or
-			{name = "default_break_glass", gain = 1.0}
+		{ name = "default_break_glass", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -98,11 +98,11 @@ end
 function default.node_sound_ice_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_ice_footstep", gain = 0.3}
+		{ name = "default_ice_footstep", gain = 0.3 }
 	table.dig = table.dig or
-			{name = "default_ice_dig", gain = 0.5}
+		{ name = "default_ice_dig", gain = 0.5 }
 	table.dug = table.dug or
-			{name = "default_ice_dug", gain = 0.5}
+		{ name = "default_ice_dug", gain = 0.5 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -110,13 +110,13 @@ end
 function default.node_sound_metal_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_metal_footstep", gain = 0.4}
+		{ name = "default_metal_footstep", gain = 0.4 }
 	table.dig = table.dig or
-			{name = "default_dig_metal", gain = 0.5}
+		{ name = "default_dig_metal", gain = 0.5 }
 	table.dug = table.dug or
-			{name = "default_dug_metal", gain = 0.5}
+		{ name = "default_dug_metal", gain = 0.5 }
 	table.place = table.place or
-			{name = "default_place_node_metal", gain = 0.5}
+		{ name = "default_place_node_metal", gain = 0.5 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -124,7 +124,7 @@ end
 function default.node_sound_water_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_water_footstep", gain = 0.2}
+		{ name = "default_water_footstep", gain = 0.2 }
 	default.node_sound_defaults(table)
 	return table
 end
@@ -132,17 +132,16 @@ end
 function default.node_sound_snow_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_snow_footstep", gain = 0.2}
+		{ name = "default_snow_footstep", gain = 0.2 }
 	table.dig = table.dig or
-			{name = "default_snow_footstep", gain = 0.3}
+		{ name = "default_snow_footstep", gain = 0.3 }
 	table.dug = table.dug or
-			{name = "default_snow_footstep", gain = 0.3}
+		{ name = "default_snow_footstep", gain = 0.3 }
 	table.place = table.place or
-			{name = "default_place_node", gain = 1.0}
+		{ name = "default_place_node", gain = 1.0 }
 	default.node_sound_defaults(table)
 	return table
 end
-
 
 --
 -- Lavacooling
@@ -150,12 +149,12 @@ end
 
 default.cool_lava = function(pos, node)
 	if node.name == "default:lava_source" then
-		minetest.set_node(pos, {name = "default:obsidian"})
+		minetest.set_node(pos, { name = "default:obsidian" })
 	else -- Lava flowing
-		minetest.set_node(pos, {name = "default:stone"})
+		minetest.set_node(pos, { name = "default:stone" })
 	end
 	minetest.sound_play("default_cool_lava",
-		{pos = pos, max_hear_distance = 16, gain = 0.25}, true)
+		{ pos = pos, max_hear_distance = 16, gain = 0.25 }, true)
 end
 
 
@@ -169,12 +168,11 @@ function default.get_inventory_drops(pos, inventory, drops)
 	for i = 1, inv:get_size(inventory) do
 		local stack = inv:get_stack(inventory, i)
 		if stack:get_count() > 0 then
-			drops[n+1] = stack:to_table()
+			drops[n + 1] = stack:to_table()
 			n = n + 1
 		end
 	end
 end
-
 
 --
 -- Papyrus and cactus growing
@@ -203,7 +201,7 @@ function default.grow_cactus(pos, node)
 	if minetest.get_node_light(pos) < 13 then
 		return
 	end
-	minetest.set_node(pos, {name = "default:cactus"})
+	minetest.set_node(pos, { name = "default:cactus" })
 	return true
 end
 
@@ -211,14 +209,14 @@ function default.grow_papyrus(pos, node)
 	pos.y = pos.y - 1
 	local name = minetest.get_node(pos).name
 	if name ~= "default:dirt" and
-			name ~= "default:dirt_with_grass" and
-			name ~= "default:dirt_with_dry_grass" and
-			name ~= "default:dirt_with_rainforest_litter" and
-			name ~= "default:dry_dirt" and
-			name ~= "default:dry_dirt_with_dry_grass" then
+		name ~= "default:dirt_with_grass" and
+		name ~= "default:dirt_with_dry_grass" and
+		name ~= "default:dirt_with_rainforest_litter" and
+		name ~= "default:dry_dirt" and
+		name ~= "default:dry_dirt_with_dry_grass" then
 		return
 	end
-	if not minetest.find_node_near(pos, 3, {"group:water"}) then
+	if not minetest.find_node_near(pos, 3, { "group:water" }) then
 		return
 	end
 	pos.y = pos.y + 1
@@ -234,7 +232,7 @@ function default.grow_papyrus(pos, node)
 	if minetest.get_node_light(pos) < 13 then
 		return
 	end
-	minetest.set_node(pos, {name = "default:papyrus"})
+	minetest.set_node(pos, { name = "default:papyrus" })
 	return true
 end
 
@@ -244,62 +242,53 @@ end
 
 function default.dig_up(pos, node, digger)
 	if digger == nil then return end
-	local np = {x = pos.x, y = pos.y + 1, z = pos.z}
+	local np = { x = pos.x, y = pos.y + 1, z = pos.z }
 	local nn = minetest.get_node(np)
 	if nn.name == node.name then
 		minetest.node_dig(np, nn, digger)
 	end
 end
 
-
 --
 -- Fence registration helper
 --
-local fence_collision_extra = minetest.settings:get_bool("enable_fence_tall") and 3/8 or 0
+local fence_collision_extra = minetest.settings:get_bool("enable_fence_tall") and 3 / 8 or 0
 
 function default.register_fence(name, def)
-	minetest.register_craft({
-		output = name .. " 4",
-		recipe = {
-			{ def.material, 'group:stick', def.material },
-			{ def.material, 'group:stick', def.material },
-		}
-	})
-
 	local fence_texture = "default_fence_overlay.png^" .. def.texture ..
-			"^default_fence_overlay.png^[makealpha:255,126,126"
+		"^default_fence_overlay.png^[makealpha:255,126,126"
 	-- Allow almost everything to be overridden
 	local default_fields = {
 		paramtype = "light",
 		drawtype = "nodebox",
 		node_box = {
 			type = "connected",
-			fixed = {-1/8, -1/2, -1/8, 1/8, 1/2, 1/8},
+			fixed = { -1 / 8, -1 / 2, -1 / 8, 1 / 8, 1 / 2, 1 / 8 },
 			-- connect_top =
 			-- connect_bottom =
-			connect_front = {{-1/16,  3/16, -1/2,   1/16,  5/16, -1/8 },
-				         {-1/16, -5/16, -1/2,   1/16, -3/16, -1/8 }},
-			connect_left =  {{-1/2,   3/16, -1/16, -1/8,   5/16,  1/16},
-				         {-1/2,  -5/16, -1/16, -1/8,  -3/16,  1/16}},
-			connect_back =  {{-1/16,  3/16,  1/8,   1/16,  5/16,  1/2 },
-				         {-1/16, -5/16,  1/8,   1/16, -3/16,  1/2 }},
-			connect_right = {{ 1/8,   3/16, -1/16,  1/2,   5/16,  1/16},
-				         { 1/8,  -5/16, -1/16,  1/2,  -3/16,  1/16}}
+			connect_front = { { -1 / 16, 3 / 16, -1 / 2, 1 / 16, 5 / 16, -1 / 8 },
+				{ -1 / 16, -5 / 16, -1 / 2, 1 / 16, -3 / 16, -1 / 8 } },
+			connect_left = { { -1 / 2, 3 / 16, -1 / 16, -1 / 8, 5 / 16, 1 / 16 },
+				{ -1 / 2, -5 / 16, -1 / 16, -1 / 8, -3 / 16, 1 / 16 } },
+			connect_back = { { -1 / 16, 3 / 16, 1 / 8, 1 / 16, 5 / 16, 1 / 2 },
+				{ -1 / 16, -5 / 16, 1 / 8, 1 / 16, -3 / 16, 1 / 2 } },
+			connect_right = { { 1 / 8, 3 / 16, -1 / 16, 1 / 2, 5 / 16, 1 / 16 },
+				{ 1 / 8, -5 / 16, -1 / 16, 1 / 2, -3 / 16, 1 / 16 } }
 		},
 		collision_box = {
 			type = "connected",
-			fixed = {-1/8, -1/2, -1/8, 1/8, 1/2 + fence_collision_extra, 1/8},
+			fixed = { -1 / 8, -1 / 2, -1 / 8, 1 / 8, 1 / 2 + fence_collision_extra, 1 / 8 },
 			-- connect_top =
 			-- connect_bottom =
-			connect_front = {-1/8, -1/2, -1/2,  1/8, 1/2 + fence_collision_extra, -1/8},
-			connect_left =  {-1/2, -1/2, -1/8, -1/8, 1/2 + fence_collision_extra,  1/8},
-			connect_back =  {-1/8, -1/2,  1/8,  1/8, 1/2 + fence_collision_extra,  1/2},
-			connect_right = { 1/8, -1/2, -1/8,  1/2, 1/2 + fence_collision_extra,  1/8}
+			connect_front = { -1 / 8, -1 / 2, -1 / 2, 1 / 8, 1 / 2 + fence_collision_extra, -1 / 8 },
+			connect_left = { -1 / 2, -1 / 2, -1 / 8, -1 / 8, 1 / 2 + fence_collision_extra, 1 / 8 },
+			connect_back = { -1 / 8, -1 / 2, 1 / 8, 1 / 8, 1 / 2 + fence_collision_extra, 1 / 2 },
+			connect_right = { 1 / 8, -1 / 2, -1 / 8, 1 / 2, 1 / 2 + fence_collision_extra, 1 / 8 }
 		},
-		connects_to = {"group:fence", "group:wood", "group:tree", "group:wall"},
+		connects_to = { "group:fence", "group:wood", "group:tree", "group:wall" },
 		inventory_image = fence_texture,
 		wield_image = fence_texture,
-		tiles = {def.texture},
+		tiles = { def.texture },
 		sunlight_propagates = true,
 		is_ground_content = false,
 		groups = {},
@@ -319,56 +308,46 @@ function default.register_fence(name, def)
 	minetest.register_node(name, def)
 end
 
-
 --
 -- Fence rail registration helper
 --
 
 function default.register_fence_rail(name, def)
-	minetest.register_craft({
-		output = name .. " 16",
-		recipe = {
-			{ def.material, def.material },
-			{ "", ""},
-			{ def.material, def.material },
-		}
-	})
-
 	local fence_rail_texture = "default_fence_rail_overlay.png^" .. def.texture ..
-			"^default_fence_rail_overlay.png^[makealpha:255,126,126"
+		"^default_fence_rail_overlay.png^[makealpha:255,126,126"
 	-- Allow almost everything to be overridden
 	local default_fields = {
 		paramtype = "light",
 		drawtype = "nodebox",
 		node_box = {
 			type = "connected",
-			fixed = {{-1/16,  3/16, -1/16, 1/16,  5/16, 1/16},
-				 {-1/16, -3/16, -1/16, 1/16, -5/16, 1/16}},
+			fixed = { { -1 / 16, 3 / 16, -1 / 16, 1 / 16, 5 / 16, 1 / 16 },
+				{ -1 / 16, -3 / 16, -1 / 16, 1 / 16, -5 / 16, 1 / 16 } },
 			-- connect_top =
 			-- connect_bottom =
-			connect_front = {{-1/16,  3/16, -1/2,   1/16,  5/16, -1/16},
-				         {-1/16, -5/16, -1/2,   1/16, -3/16, -1/16}},
-			connect_left =  {{-1/2,   3/16, -1/16, -1/16,  5/16,  1/16},
-				         {-1/2,  -5/16, -1/16, -1/16, -3/16,  1/16}},
-			connect_back =  {{-1/16,  3/16,  1/16,  1/16,  5/16,  1/2 },
-				         {-1/16, -5/16,  1/16,  1/16, -3/16,  1/2 }},
-			connect_right = {{ 1/16,  3/16, -1/16,  1/2,   5/16,  1/16},
-		                         { 1/16, -5/16, -1/16,  1/2,  -3/16,  1/16}}
+			connect_front = { { -1 / 16, 3 / 16, -1 / 2, 1 / 16, 5 / 16, -1 / 16 },
+				{ -1 / 16, -5 / 16, -1 / 2, 1 / 16, -3 / 16, -1 / 16 } },
+			connect_left = { { -1 / 2, 3 / 16, -1 / 16, -1 / 16, 5 / 16, 1 / 16 },
+				{ -1 / 2, -5 / 16, -1 / 16, -1 / 16, -3 / 16, 1 / 16 } },
+			connect_back = { { -1 / 16, 3 / 16, 1 / 16, 1 / 16, 5 / 16, 1 / 2 },
+				{ -1 / 16, -5 / 16, 1 / 16, 1 / 16, -3 / 16, 1 / 2 } },
+			connect_right = { { 1 / 16, 3 / 16, -1 / 16, 1 / 2, 5 / 16, 1 / 16 },
+				{ 1 / 16, -5 / 16, -1 / 16, 1 / 2, -3 / 16, 1 / 16 } }
 		},
 		collision_box = {
 			type = "connected",
-			fixed = {-1/8, -1/2, -1/8, 1/8, 1/2 + fence_collision_extra, 1/8},
+			fixed = { -1 / 8, -1 / 2, -1 / 8, 1 / 8, 1 / 2 + fence_collision_extra, 1 / 8 },
 			-- connect_top =
 			-- connect_bottom =
-			connect_front = {-1/8, -1/2, -1/2,  1/8, 1/2 + fence_collision_extra, -1/8},
-			connect_left =  {-1/2, -1/2, -1/8, -1/8, 1/2 + fence_collision_extra,  1/8},
-			connect_back =  {-1/8, -1/2,  1/8,  1/8, 1/2 + fence_collision_extra,  1/2},
-			connect_right = { 1/8, -1/2, -1/8,  1/2, 1/2 + fence_collision_extra,  1/8}
+			connect_front = { -1 / 8, -1 / 2, -1 / 2, 1 / 8, 1 / 2 + fence_collision_extra, -1 / 8 },
+			connect_left = { -1 / 2, -1 / 2, -1 / 8, -1 / 8, 1 / 2 + fence_collision_extra, 1 / 8 },
+			connect_back = { -1 / 8, -1 / 2, 1 / 8, 1 / 8, 1 / 2 + fence_collision_extra, 1 / 2 },
+			connect_right = { 1 / 8, -1 / 2, -1 / 8, 1 / 2, 1 / 2 + fence_collision_extra, 1 / 8 }
 		},
-		connects_to = {"group:fence", "group:wall"},
+		connects_to = { "group:fence", "group:wall" },
 		inventory_image = fence_rail_texture,
 		wield_image = fence_rail_texture,
-		tiles = {def.texture},
+		tiles = { def.texture },
 		sunlight_propagates = true,
 		is_ground_content = false,
 		groups = {},
@@ -393,15 +372,6 @@ end
 --
 
 function default.register_mesepost(name, def)
-	minetest.register_craft({
-		output = name .. " 4",
-		recipe = {
-			{'', 'default:glass', ''},
-			{'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},
-			{'', def.material, ''},
-		}
-	})
-
 	local post_texture = def.texture .. "^default_mese_post_light_side.png^[makealpha:0,0,0"
 	local post_texture_dark = def.texture .. "^default_mese_post_light_side_dark.png^[makealpha:0,0,0"
 	-- Allow almost everything to be overridden
@@ -411,16 +381,16 @@ function default.register_mesepost(name, def)
 		node_box = {
 			type = "fixed",
 			fixed = {
-				{-2 / 16, -8 / 16, -2 / 16, 2 / 16, 8 / 16, 2 / 16},
+				{ -2 / 16, -8 / 16, -2 / 16, 2 / 16, 8 / 16, 2 / 16 },
 			},
 		},
 		paramtype = "light",
-		tiles = {def.texture, def.texture, post_texture_dark, post_texture_dark, post_texture, post_texture},
+		tiles = { def.texture, def.texture, post_texture_dark, post_texture_dark, post_texture, post_texture },
 		use_texture_alpha = "opaque",
 		light_source = default.LIGHT_MAX,
 		sunlight_propagates = true,
 		is_ground_content = false,
-		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
 		sounds = default.node_sound_wood_defaults(),
 	}
 	for k, v in pairs(default_fields) do
@@ -452,7 +422,7 @@ end
 -- Leafdecay
 local function leafdecay_after_destruct(pos, oldnode, def)
 	for _, v in pairs(minetest.find_nodes_in_area(vector.subtract(pos, def.radius),
-			vector.add(pos, def.radius), def.leaves)) do
+		vector.add(pos, def.radius), def.leaves)) do
 		local node = minetest.get_node(v)
 		local timer = minetest.get_node_timer(v)
 		if node.param2 ~= 1 and not timer:is_started() then
@@ -479,7 +449,7 @@ local function leafdecay_on_timer(pos, def)
 			end
 		end
 		if minetest.get_item_group(item, "leafdecay_drop") ~= 0 or
-				not is_leaf then
+			not is_leaf then
 			minetest.add_item({
 				x = pos.x - 0.5 + math.random(),
 				y = pos.y - 0.5 + math.random(),
@@ -495,8 +465,8 @@ local function leafdecay_on_timer(pos, def)
 	minetest.add_particlespawner({
 		amount = 8,
 		time = 0.001,
-		minpos = vector.subtract(pos, {x=0.5, y=0.5, z=0.5}),
-		maxpos = vector.add(pos, {x=0.5, y=0.5, z=0.5}),
+		minpos = vector.subtract(pos, { x = 0.5, y = 0.5, z = 0.5 }),
+		maxpos = vector.add(pos, { x = 0.5, y = 0.5, z = 0.5 }),
 		minvel = vector.new(-0.5, -1, -0.5),
 		maxvel = vector.new(0.5, 0, 0.5),
 		minacc = vector.new(0, -movement_gravity, 0),
@@ -532,35 +502,7 @@ end
 --
 
 function default.register_craft_metadata_copy(ingredient, result)
-	minetest.register_craft({
-		type = "shapeless",
-		output = result,
-		recipe = {ingredient, result}
-	})
-
-	minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
-		if itemstack:get_name() ~= result then
-			return
-		end
-
-		local original
-		local index
-		for i = 1, #old_craft_grid do
-			if old_craft_grid[i]:get_name() == result then
-				original = old_craft_grid[i]
-				index = i
-			end
-		end
-		if not original then
-			return
-		end
-		local copymeta = original:get_meta():to_table()
-		itemstack:get_meta():from_table(copymeta)
-		-- put the book with metadata back in the craft grid
-		craft_inv:set_stack("craft", index, original)
-	end)
 end
-
 
 --
 -- NOTICE: This method is not an official part of the API yet.
