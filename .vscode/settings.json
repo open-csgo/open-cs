@@ -8,6 +8,7 @@
 		"cs_data": "database",
 		"cs_debug": "debug",
 		"controls": "utils",
-		"models": "unity"
+		"models": "unity",
+		"schematics": "public"
 	}
 }
