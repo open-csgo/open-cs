@@ -1,6 +1,9 @@
 {
+	"editor.formatOnSave": true,
 	"material-icon-theme.activeIconPack": "none",
-	"material-icon-theme.files.associations": { ".imgbotconfig": "settings" },
+	"material-icon-theme.files.associations": {
+		".imgbotconfig": "settings"
+	},
 	"material-icon-theme.folders.associations": {
 		"mods": "components",
 		"textures": "images",
@@ -10,5 +13,14 @@
 		"controls": "utils",
 		"models": "unity",
 		"schematics": "public"
+	},
+	"[lua]": {
+		"editor.quickSuggestions": {
+			"comments": "inline",
+			"other": "on",
+			"strings": "on"
+		},
+		"editor.semanticHighlighting.enabled": true,
+		"editor.defaultFormatter": "sumneko.lua"
 	}
 }
