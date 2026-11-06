@@ -1,6 +1,6 @@
 # Open CS
 
-This game requires Luanti (formerly Minetest) 5.17 or newer.
+This game requires Luanti (formerly Minetest) 5.18 or newer.
 
 Its purpose is to provide a good, low-requirement FPS, while proving the power of CSM based graphics, HUD and menus.
 
