@@ -1,6 +1,6 @@
-minetest.log("action", "[cs_map] loading...")
+core.log("action", "[cs_map] loading...")
 
-local modpath = minetest.get_modpath("cs_map")
+local modpath = core.get_modpath("cs_map")
 
 cs_map = {}
 
@@ -9,4 +9,4 @@ dofile(modpath.."/emerge.lua")
 dofile(modpath.."/api.lua")
 dofile(modpath.."/register.lua")
 
-minetest.log("action", "[cs_map] loaded succesfully")
+core.log("action", "[cs_map] loaded succesfully")

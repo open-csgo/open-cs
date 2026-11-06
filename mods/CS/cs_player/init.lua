@@ -1,10 +1,10 @@
-minetest.log("action", "[cs_player] loading...")
+core.log("action", "[cs_player] loading...")
 
-local minetest = minetest
+local core = core
 
 local vector = vector
 
-local modpath = minetest.get_modpath(minetest.get_current_modname())
+local modpath = core.get_modpath(core.get_current_modname())
 
 cs_player = {
 	hud = {},
@@ -54,7 +54,7 @@ cs_player.apparence.register_model("character.b3d", {
 	eye_height = 1.47,
 })
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	player:set_pos(vector.new(0, 0, 0))
 	player:set_properties({
 		hp_max = 100,
@@ -68,18 +68,18 @@ minetest.register_on_joinplayer(function(player)
 	cs_player.apparence.player_attached[player:get_player_name()] = false
 	cs_player.apparence.set_model(player, "character.b3d")
 	--player_states[player] = "loading"
-	--players_channels[player] = minetest.mod_channel_join("cs_player:state_"..player:get_player_name())
+	--players_channels[player] = core.mod_channel_join("cs_player:state_"..player:get_player_name())
 	--players_channels[player]:send_all("ttt")
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	player:set_pos(vector.new(0, 0, 0))
 end)
 
-function minetest.send_join_message(player_name)
+function core.send_join_message(player_name)
 end
 
-function minetest.send_leave_message(player_name)
+function core.send_leave_message(player_name)
 end
 
-minetest.log("action", "[cs_player] loaded succesfully")
+core.log("action", "[cs_player] loaded succesfully")

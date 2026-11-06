@@ -1,6 +1,6 @@
 local ipairs = ipairs
 
----@type table<string,ModChannel>
+---@type table<ObjectRef,ModChannel>
 local players_channels = {}
 
 local queue = {}
@@ -21,24 +21,27 @@ end
 
 -- JOIN MOD CHANNELS
 
-minetest.register_on_joinplayer(function(player)
-	players_channels[player] = minetest.mod_channel_join("cs_client:join_data:" .. player:get_player_name())
+core.register_on_joinplayer(function(player)
+	players_channels[player] = core.mod_channel_join("cs_client:join_data:" .. player:get_player_name())
 	table.insert(queue, player)
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	players_channels[player] = nil
 end)
 
-minetest.register_globalstep(function(dtime)
+core.register_globalstep(function(dtime)
 	has_started = true
 	local r = {}
 	for _, o in ipairs(queue) do
-		if players_channels[o]:is_writeable() then
-			minetest.after(5, function()
-				players_channels[o]:send_all(minetest.serialize(cs_data.registered_initial_data))
+		local channel = players_channels[o]
+		if channel and channel:is_writeable() then
+			core.after(5, function()
+				if players_channels[o] == channel then
+					channel:send_all(core.serialize(cs_data.registered_initial_data))
+				end
 			end)
-		else
+		elseif channel then
 			table.insert(r, o)
 		end
 	end

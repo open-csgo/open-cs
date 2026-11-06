@@ -1,4 +1,4 @@
-local minetest = minetest
+local core = core
 
 local os = os
 local pairs = pairs
@@ -32,7 +32,7 @@ function controls.register_on_hold(func)
 	controls.registered_on_hold[#controls.registered_on_hold + 1] = func
 end
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	controls.players[name] = {
 		jump = { false },
@@ -50,13 +50,13 @@ minetest.register_on_joinplayer(function(player)
 	}
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
 	controls.players[name] = nil
 end)
 
-minetest.register_globalstep(function()
-	for _, player in pairs(minetest.get_connected_players()) do
+core.register_globalstep(function()
+	for _, player in pairs(core.get_connected_players()) do
 		local player_name = player:get_player_name()
 		local player_controls = player:get_player_control()
 		for cname, cbool in pairs(player_controls) do

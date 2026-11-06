@@ -9,7 +9,7 @@ local function emergeblocks_callback(pos, action, num_calls_remaining, ctx)
 
 	if ctx.current_blocks == ctx.total_blocks then
 		--if ctx.name then
-		--	minetest.chat_send_player(ctx.name,
+		--	core.chat_send_player(ctx.name,
 		--		string.format("Finished emerging %d blocks in %.2fms.",
 		--		ctx.total_blocks, (os.clock() - ctx.start_time) * 1000))
 		--end
@@ -34,5 +34,5 @@ function cs_map.emerge_with_callbacks(pos1, pos2, callback, progress)
 		progress       = progress
 	}
 
-	minetest.emerge_area(pos1, pos2, emergeblocks_callback, context)
+	core.emerge_area(pos1, pos2, emergeblocks_callback, context)
 end

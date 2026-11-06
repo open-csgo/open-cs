@@ -1,5 +1,5 @@
 local dump = dump
-local C = minetest.colorize
+local C = core.colorize
 
 ---@param t table
 ---@return integer
@@ -11,44 +11,44 @@ local function count(t)
 	return c
 end
 
-minetest.register_chatcommand("ldebug", {
+core.register_chatcommand("ldebug", {
 	description = "List things registered in the engine",
 	func = function(name, param)
 		if param == "abm" then
 			return true,
-				C("green", string.format("There are %s abms\n=============\n", #minetest.registered_abms)) ..
-				dump(minetest.registered_abms) ..
+				C("green", string.format("There are %s abms\n=============\n", #core.registered_abms)) ..
+				dump(core.registered_abms) ..
 				C("green", "\n=============")
 		elseif param == "nodes" then
 			return true,
-				C("green", string.format("There are %s nodes\n=============\n", #minetest.registered_nodes)) ..
-				dump(minetest.registered_nodes) ..
+				C("green", string.format("There are %s nodes\n=============\n", #core.registered_nodes)) ..
+				dump(core.registered_nodes) ..
 				C("green", "\n=============")
 		elseif param == "lbm" then
 			return true,
-				C("green", string.format("There are %s lbms\n=============\n", #minetest.registered_lbms)) ..
-				dump(minetest.registered_lbms) ..
+				C("green", string.format("There are %s lbms\n=============\n", #core.registered_lbms)) ..
+				dump(core.registered_lbms) ..
 				C("green", "\n=============")
 		elseif param == "ent" then
 			return true,
-				C("green", string.format("There are %s entities\n=============\n", #minetest.registered_entities)) ..
-				dump(minetest.registered_entities) ..
+				C("green", string.format("There are %s entities\n=============\n", #core.registered_entities)) ..
+				dump(core.registered_entities) ..
 				C("green", "\n=============")
 		elseif param == "command" then
 			return true,
 				--FIXME: wrong count
-				C("green", string.format("There are %s chatcommands\n=============\n", count(minetest.registered_chatcommands))) ..
-				dump(minetest.registered_chatcommands) ..
+				C("green", string.format("There are %s chatcommands\n=============\n", count(core.registered_chatcommands))) ..
+				dump(core.registered_chatcommands) ..
 				C("green", "\n=============")
 		elseif param == "biome" then
 			return true,
-				C("green", string.format("There are %s biomes\n=============\n", #minetest.registered_biomes)) ..
-				dump(minetest.registered_biomes) ..
+				C("green", string.format("There are %s biomes\n=============\n", #core.registered_biomes)) ..
+				dump(core.registered_biomes) ..
 				C("green", "\n=============")
 		elseif param == "privs" then
 			return true,
-				C("green", string.format("There are %s privs\n=============\n", #minetest.registered_privileges)) ..
-				dump(minetest.registered_privileges) ..
+				C("green", string.format("There are %s privs\n=============\n", #core.registered_privileges)) ..
+				dump(core.registered_privileges) ..
 				C("green", "\n=============")
 		else
 			return false, "No such param"

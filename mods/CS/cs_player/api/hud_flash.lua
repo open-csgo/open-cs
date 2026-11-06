@@ -1,11 +1,11 @@
 local players_channels = {}
 
 
-minetest.register_on_joinplayer(function(player)
-	players_channels[player] = minetest.mod_channel_join("cs_client:flash:"..player:get_player_name())
+core.register_on_joinplayer(function(player)
+	players_channels[player] = core.mod_channel_join("cs_client:flash:"..player:get_player_name())
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	players_channels[player] = nil
 end)
 

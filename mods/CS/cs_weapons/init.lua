@@ -1,17 +1,18 @@
-minetest.log("action", "[cs_weapons] loading...")
+core.log("action", "[cs_weapons] loading...")
 
-local modpath  = minetest.get_modpath(minetest.get_current_modname())
+local modpath  = core.get_modpath(core.get_current_modname())
 
 cs_weapons = {}
 
-cs_weapons.GUN_KNOCKBACK = minetest.settings:get_bool("cs_weapons.gun_knockback", true)
+cs_weapons.GUN_KNOCKBACK = core.settings:get_bool("cs_weapons.gun_knockback", true)
 
 dofile(modpath.."/api.lua")
 
-minetest.register_on_joinplayer(function(player)
-	minetest.after(5, function()
-		if not player then return end
-		local obj = minetest.add_entity(player:get_pos(), "cs_weapons:sniper")
+core.register_on_joinplayer(function(player)
+	core.after(5, function()
+		local pos = player:get_pos()
+		if not pos then return end
+		local obj = core.add_entity(pos, "cs_weapons:sniper")
 		if obj then
 			obj:set_attach(player, "Arm_Right", vector.new(0, 0, 0), vector.new(180, 180, 0), true)
 		end
@@ -19,7 +20,7 @@ minetest.register_on_joinplayer(function(player)
 end)
 
 
-minetest.register_entity("cs_weapons:flash", {
+core.register_entity("cs_weapons:flash", {
 	initial_properties = {
 		physical = false,
 		pointable = false,
@@ -30,19 +31,19 @@ minetest.register_entity("cs_weapons:flash", {
 	}
 })
 
-minetest.register_chatcommand("fs", {
+core.register_chatcommand("fs", {
 	func = function(name)
-		local pos = minetest.get_player_by_name(name):get_pos()
+		local pos = core.get_player_by_name(name):get_pos()
 
-		minetest.add_entity(pos, "cs_weapons:flash")
+		core.add_entity(pos, "cs_weapons:flash")
 	end
 })
 
-minetest.register_chatcommand("ft", {
+core.register_chatcommand("ft", {
 	func = function(name)
-		local player = minetest.get_player_by_name(name)
+		local player = core.get_player_by_name(name)
 		if player then
-			local entities = minetest.get_objects_inside_radius(player:get_pos(), 20)
+			local entities = core.get_objects_inside_radius(player:get_pos(), 20)
 			for _,e in ipairs(entities) do
 				if e:get_luaentity() and e:get_luaentity().name == "cs_weapons:flash" then
 					cs_player.hud.flash(player, e:get_pos())
@@ -56,4 +57,4 @@ minetest.register_chatcommand("ft", {
 	end
 })
 
-minetest.log("action", "[cs_weapons] loaded succesfully")
+core.log("action", "[cs_weapons] loaded succesfully")

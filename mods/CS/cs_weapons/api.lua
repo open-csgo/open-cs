@@ -1,4 +1,4 @@
-local minetest = minetest
+local core = core
 
 local vector = vector
 
@@ -25,7 +25,7 @@ function cs_weapons.register_weapon(name, def)
 	--[[local function use(_, user, _)
 		cs_weapon.shot(user, {damage = def.specs.damage, range_modifier = def.specs.range_modifier or 0.40})
 	end]]
-	minetest.register_craftitem(name, {
+	core.register_craftitem(name, {
 		description = def.desc or "UKNOWN",
 		inventory_image = def.icon or "default_stone.png",
 		--on_use = use,
@@ -34,7 +34,7 @@ function cs_weapons.register_weapon(name, def)
 		_weapon = {
 		},
 	})
-	minetest.register_entity(name, {
+	core.register_entity(name, {
 		initial_properties = {
 			physical = false,
 			pointable = false,
@@ -67,7 +67,7 @@ function cs_weapons.shot(player, def)
 	local pos = player:get_pos()
 	pos.y = pos.y + def.height
 
-	minetest.debug(player:get_look_horizontal(), player:get_look_vertical())
+	core.debug(player:get_look_horizontal(), player:get_look_vertical())
 
 	local ctrl = player:get_player_control()
 
@@ -80,21 +80,21 @@ function cs_weapons.shot(player, def)
 	look_dir = vector.multiply(look_dir, 20)
 	local pos2 = vector.add(pos, look_dir)
 
-	local ray = minetest.raycast(pos, pos2, true, false)
+	local ray = core.raycast(pos, pos2, true, false)
 	if ray then
 		for pointed_thing in ray do
 			if pointed_thing then
-				--minetest.chat_send_all(pointed_thing.type)
+				--core.chat_send_all(pointed_thing.type)
 				if pointed_thing.type == "node" then
-					local node = minetest.get_node(pointed_thing.under).name
-					if minetest.get_item_group(node, "door_shoot") ~= 0 then
+					local node = core.get_node(pointed_thing.under).name
+					if core.get_item_group(node, "door_shoot") ~= 0 then
 						--TODO: implement door breaking
-						minetest.chat_send_all("door found!")
-					elseif minetest.get_item_group(node, "leaves") ~= 0 then
+						core.chat_send_all("door found!")
+					elseif core.get_item_group(node, "leaves") ~= 0 then
 						--TODO: add this to CSM/SSCSM
-						minetest.chat_send_all("leaves found!")
+						core.chat_send_all("leaves found!")
 						local velocity = vector.new(3, 3, 3)
-						minetest.add_particlespawner({
+						core.add_particlespawner({
 							amount = 10,
 							time = 0.1,
 							minpos = pointed_thing.under + vector.new(1, 1, 1),
@@ -114,8 +114,8 @@ function cs_weapons.shot(player, def)
 							node = {name = node, param2 = 0},
 						})
 					else
-						minetest.chat_send_all("node found!")
-						minetest.add_particle({
+						core.chat_send_all("node found!")
+						core.add_particle({
 							pos = pointed_thing.intersection_point,
 							expirationtime = 5,
 							size = 2,
@@ -131,7 +131,7 @@ function cs_weapons.shot(player, def)
 					local damage = distance_to_damage(def.damage, def.range_modifier, metters_to_inches(distance))
 
 					pointed_thing.ref:set_hp(pointed_thing.ref:get_hp() - damage, "punch")
-					minetest.chat_send_all("obj found!")
+					core.chat_send_all("obj found!")
 					break
 				end
 			end

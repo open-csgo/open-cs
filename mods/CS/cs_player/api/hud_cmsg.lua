@@ -1,10 +1,10 @@
 local players_channels = {}
 
-minetest.register_on_joinplayer(function(player)
-	players_channels[player] = minetest.mod_channel_join("cs_client:center_message:"..player:get_player_name())
+core.register_on_joinplayer(function(player)
+	players_channels[player] = core.mod_channel_join("cs_client:center_message:"..player:get_player_name())
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	players_channels[player] = nil
 end)
 
@@ -20,9 +20,9 @@ function cs_player.hud.add_center_msg(player, text)
 	end
 end
 
-minetest.register_chatcommand("cmsg", {
+core.register_chatcommand("cmsg", {
 	func = function(name, param)
-		local player = minetest.get_player_by_name(name)
+		local player = core.get_player_by_name(name)
 		if player then
 			local result = cs_player.hud.add_center_msg(player, param)
 			if result == true then

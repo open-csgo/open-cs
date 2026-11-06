@@ -1,4 +1,4 @@
-minetest.log("action", "[cs_menu] loading...")
+core.log("action", "[cs_menu] loading...")
 
 local table = table
 
@@ -9,7 +9,7 @@ cs_menu.formspec_prepend = table.concat({
 	"background9[5,5;1,1;gui_formbg.png;true;10]",
 })
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	--disable inventory formspec
 	--player:set_inventory_formspec("no_prepend[]")
 	--apply formspec styling
@@ -26,7 +26,7 @@ minetest.register_on_joinplayer(function(player)
 	})
 end)
 
-minetest.register_on_player_hpchange(function(player, hp_change, reason)
+core.register_on_player_hpchange(function(player, hp_change, reason)
 	if reason == "drown" then
 		return 0
 	else
@@ -34,4 +34,4 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
 	end
 end, true)
 
-minetest.log("action", "[cs_menu] loaded succesfully")
+core.log("action", "[cs_menu] loaded succesfully")

@@ -2,7 +2,7 @@
 cs_map.INITIAL_MAP_POS = vector.new(-30000, 0, -30000)
 
 ---@type integer
-cs_map.MAX_CONCURENT_MAPS = tonumber(minetest.settings:get("cs_map.max_concurent_maps")) or 4
+cs_map.MAX_CONCURENT_MAPS = tonumber(core.settings:get("cs_map.max_concurent_maps")) or 4
 
 
 ---@type table<integer, cs_map_active>
@@ -99,8 +99,8 @@ function cs_map.emerge_map(index)
 	local pos = cs_map.map_index_to_pos(index)
 
 	cs_map.emerge_with_callbacks(pos, pos + mapdef.size, function(context)
-		minetest.place_schematic(pos, mapdef.schem, 0, {["draconis:scorched_soil"] = "default:dirt"}, true, {})
-		for _,player in pairs(minetest.get_connected_players()) do
+		core.place_schematic(pos, mapdef.schem, 0, {["draconis:scorched_soil"] = "default:dirt"}, true, {})
+		for _,player in pairs(core.get_connected_players()) do
 			player:set_pos(pos + mapdef.start_positions.team1)
 			cs_map.apply_graphics(player, mapdef.graphics)
 		end
@@ -108,14 +108,14 @@ function cs_map.emerge_map(index)
 end
 
 
-minetest.register_chatcommand("map", {
+core.register_chatcommand("map", {
 	func = function()
 		print(dump(cs_map.registered_maps))
 		cs_map.create_map("hill")
 	end,
 })
 
-minetest.register_chatcommand("map_list", {
+core.register_chatcommand("map_list", {
 	func = function()
 		return true, dump(cs_map.active_maps)
 	end,
